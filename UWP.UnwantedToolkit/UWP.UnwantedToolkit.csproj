@@ -107,6 +107,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controls\HashHandleTextBlock\HashHandleTextBlock.cs" />
     <Compile Include="Converters\KindToImageConverter.cs" />
     <Compile Include="Enums\DeviceType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
