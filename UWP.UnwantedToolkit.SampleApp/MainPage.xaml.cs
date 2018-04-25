@@ -1,8 +1,6 @@
 ﻿using System;
-using UWP.UnwantedToolkit.Controls;
-using Windows.UI.Popups;
+using System.Linq;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
 
 namespace UWP.UnwantedToolkit.SampleApp
 {
@@ -13,20 +11,11 @@ namespace UWP.UnwantedToolkit.SampleApp
             InitializeComponent();
         }
 
-        private async void Button_Tapped(object sender, TappedRoutedEventArgs e)
+        private void nvSample_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-            RemoteDevicePicker remoteDevicePicker = new RemoteDevicePicker()
-            {
-                Title = "Pick Remote Device",
-                DeviceListSelectionMode = ListViewSelectionMode.Extended
-            };
-            remoteDevicePicker.RemoteDevicePickerClosed += RemoteDevicePicker_RemoteDevicePickerClosed;
-            await remoteDevicePicker.ShowAsync();
-        }
-
-        private async void RemoteDevicePicker_RemoteDevicePickerClosed(object sender, RemoteDevicePickerEventArgs e)
-        {
-            await new MessageDialog(e.Devices.Count.ToString()).ShowAsync();
+            NavigationViewItem item = sender.MenuItems.OfType<NavigationViewItem>().First(x => (string)x.Content == (string)args.InvokedItem);
+            Type type = Type.GetType("UWP.UnwantedToolkit.SampleApp.ControlPages." + item.Tag.ToString());
+            contentFrame.Navigate(type);
         }
     }
 }
