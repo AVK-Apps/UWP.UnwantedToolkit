@@ -1,4 +1,5 @@
 ﻿using System;
+using UWP.UnwantedToolkit.Enums;
 using Windows.UI.Xaml.Data;
 
 namespace UWP.UnwantedToolkit.Converters
@@ -8,22 +9,22 @@ namespace UWP.UnwantedToolkit.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             string finalvalue = string.Empty;
-            switch ((string)value)
+            switch ((DeviceType)Enum.Parse(typeof(DeviceType), value.ToString()))
             {
-                case "Desktop":
+                case DeviceType.Desktop:
                     finalvalue = "\xE770";
                     break;
-                case "Phone":
-                case "Unknown":
+                case DeviceType.Phone:
+                case DeviceType.Unknown:
                     finalvalue = "\xE8EA";
                     break;
-                case "Xbox":
+                case DeviceType.Xbox:
                     finalvalue = "\xE990";
                     break;
-                case "Tablet":
+                case DeviceType.Tablet:
                     finalvalue = "\xE70A";
                     break;
-                case "Laptop":
+                case DeviceType.Laptop:
                     finalvalue = "\xE7F8";
                     break;
                 default:

@@ -66,7 +66,7 @@ namespace UWP.UnwantedToolkit.Controls
             _progressRing = GetTemplateChild("PART_PROGRESS") as ProgressRing;
 
             var _enumval = Enum.GetValues(typeof(DeviceType)).Cast<DeviceType>();
-            _listDeviceTypes.ItemsSource = _enumval.ToList();
+            _listDeviceTypes.ItemsSource = _enumval;
             _listDeviceTypes.SelectedIndex = 0;
             base.OnApplyTemplate();
         }

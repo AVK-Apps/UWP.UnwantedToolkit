@@ -158,7 +158,7 @@
                                                 </Grid.ColumnDefinitions>
                                                 <StackPanel Orientation="Horizontal" >
                                                     <TextBlock Text="Device Type: " VerticalAlignment="Center"/>
-                                                    <ComboBox Style="{StaticResource ComboBoxStyleDevicePicker}" x:Name="PART_LISTDEVICETYPES" Foreground="{ThemeResource SystemControlBackgroundAccentBrush}" Padding="10,3,0,0" VerticalAlignment="Center"/>
+                                                    <ComboBox Style="{StaticResource ComboBoxStyleDevicePicker}" x:Name="PART_LISTDEVICETYPES" Foreground="{ThemeResource SystemControlBackgroundAccentBrush}" Padding="10,0,0,0" VerticalAlignment="Center"/>
                                                 </StackPanel>
                                                 <ProgressRing x:Name="PART_PROGRESS" Width="20" Height="20" IsActive="False" Grid.Column="1" Margin="5" />
                                             </Grid>

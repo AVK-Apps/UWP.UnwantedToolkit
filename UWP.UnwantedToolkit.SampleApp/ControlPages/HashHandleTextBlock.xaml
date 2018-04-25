@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="InputText"/>
-        <hashhandletextblock:HashHandleTextBlock Text="Hello World @Hello #Awesome. This is Awesome." Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="InputText" AcceptsReturn="True"/>
+        <hashhandletextblock:HashHandleTextBlock Text="{Binding ElementName=InputText, Path=Text}" Grid.Row="1" Margin="20" HashPrefix="https://twitter.com/hashtag/" HandlePrefix="https://twitter.com/" />
     </Grid>
 </Page>

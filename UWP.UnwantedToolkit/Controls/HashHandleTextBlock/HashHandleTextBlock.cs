@@ -18,13 +18,49 @@ namespace UWP.UnwantedToolkit.Controls.HashHandleTextBlock
             set { SetValue(TextProperty, value); }
         }
 
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(HashHandleTextBlock), new PropertyMetadata(string.Empty));
+        public string HandlePrefix
+        {
+            get { return (string)GetValue(HandlePrefixProperty); }
+            set { SetValue(HandlePrefixProperty, value); }
+        }
+
+        public string HashPrefix
+        {
+            get { return (string)GetValue(HashPrefixProperty); }
+            set { SetValue(HashPrefixProperty, value); }
+        }
+
+        public RichTextBlock RichTextBlock { get => richTextBlock; set => richTextBlock = value; }
+        public Paragraph Paragraph { get => paragraph; set => paragraph = value; }
+        public Border RootBorder { get => _rootBorder; set => _rootBorder = value; }
+
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+            nameof(Text),
+            typeof(string),
+            typeof(HashHandleTextBlock),
+            new PropertyMetadata(string.Empty, OnPropertyChangedStatic));
+
+        public static readonly DependencyProperty HandlePrefixProperty = DependencyProperty.Register(
+            nameof(HandlePrefix), 
+            typeof(string), 
+            typeof(HashHandleTextBlock), 
+            new PropertyMetadata(string.Empty, OnPropertyChangedStatic));
+
+        public static readonly DependencyProperty HashPrefixProperty = DependencyProperty.Register(
+            nameof(HashPrefix), 
+            typeof(string), 
+            typeof(HashHandleTextBlock), 
+            new PropertyMetadata(string.Empty, OnPropertyChangedStatic));
+
+        private static void OnPropertyChangedStatic(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var instance = d as HashHandleTextBlock;
+            instance?.OnPropertyChanged(d, e.Property);
+        }
 
         public HashHandleTextBlock()
         {
             DefaultStyleKey = typeof(HashHandleTextBlock);
-
-            RegisterPropertyChangedCallback(FontSizeProperty, OnPropertyChanged);
         }
 
         private void OnPropertyChanged(DependencyObject sender, DependencyProperty dp)
@@ -34,14 +70,17 @@ namespace UWP.UnwantedToolkit.Controls.HashHandleTextBlock
 
         protected override void OnApplyTemplate()
         {
-            richTextBlock.Blocks.Add(paragraph);
-            _rootBorder = GetTemplateChild("RootElement") as Border;
-            _rootBorder.Child = richTextBlock;
+            RichTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+            RichTextBlock.VerticalAlignment = VerticalAlignment.Top;
+            RichTextBlock.Blocks.Add(Paragraph);
+            RootBorder = GetTemplateChild("RootElement") as Border;
+            RootBorder.Child = RichTextBlock;
             Render();
         }
 
         private void Render()
         {
+            Paragraph.Inlines.Clear();
             List<string> HashText = new List<string>();
             List<string> HandleText = new List<string>();
             int start = 0;
@@ -57,7 +96,6 @@ namespace UWP.UnwantedToolkit.Controls.HashHandleTextBlock
             {
                 if (Text[pos] == '@')
                 {
-                    RenderText(start, pos);
                     handlestart = pos;
                     handleEnd = Text.IndexOf(" ", handlestart);
                     if (handleEnd == -1) handleEnd = end;
@@ -74,29 +112,36 @@ namespace UWP.UnwantedToolkit.Controls.HashHandleTextBlock
                     RenderHandle(hashText, false);
                     pos = hashEnd;
                 }
+                else
+                {
+                    RenderText(Text[pos].ToString());
+                }
                 pos++;
             }
         }
 
-        internal void RenderText(int start, int end)
+        internal void RenderText(string RunText)
         {
-            Run run = new Run() { Text = Text.Substring(start, end) };
-            paragraph.Inlines.Add(run);
+            Run run = new Run() { Text = RunText };
+            Paragraph.Inlines.Add(run);
         }
 
         internal void RenderHandle(string Handle, bool isHandle)
         {
-            string uri = isHandle ? "https://twitter.com/" + Handle.Substring(1, Handle.Length - 1) : "https://twitter.com/hashtag/" + Handle.Substring(1, Handle.Length - 1);
+            string returnString = string.Format(
+                "{0}{1}",  
+                isHandle ? HandlePrefix : HashPrefix,
+                Handle.Substring(1, Handle.Length - 1));
 
             Hyperlink hyperlink = new Hyperlink();
-            hyperlink.NavigateUri = new Uri(uri);
+            hyperlink.NavigateUri = new Uri(returnString);
             Run run = new Run() { Text = Handle };
             hyperlink.Inlines.Add(run);
 
-            paragraph.Inlines.Add(hyperlink);
+            Paragraph.Inlines.Add(hyperlink);
 
             run = new Run() { Text = " " };
-            paragraph.Inlines.Add(run);
+            Paragraph.Inlines.Add(run);
         }
     }
 }
