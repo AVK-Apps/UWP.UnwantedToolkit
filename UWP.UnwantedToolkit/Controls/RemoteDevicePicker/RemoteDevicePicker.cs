@@ -11,6 +11,9 @@ using Windows.UI.Xaml.Media;
 
 namespace UWP.UnwantedToolkit.Controls
 {
+    /// <summary>
+    /// Control specific for Project Rome
+    /// </summary>
     public sealed class RemoteDevicePicker : ContentDialog
     {
         private Dictionary<string, RemoteSystem> DeviceMap { get; set; }
@@ -18,26 +21,55 @@ namespace UWP.UnwantedToolkit.Controls
         private ComboBox _listDeviceTypes;
         private ProgressRing _progressRing;
 
+        /// <summary>
+        /// List of RemoteSystems based on filter
+        /// </summary>
         public ObservableCollection<RemoteSystem> RemoteSystems { get; private set; }
 
+        /// <summary>
+        /// Set Header Line color. By Default it will use ThemeColor
+        /// </summary>
         public Brush HeaderLineColor
         {
             get { return (Brush)GetValue(HeaderLineColorProperty); }
             set { SetValue(HeaderLineColorProperty, value); }
         }
 
-        public static readonly DependencyProperty HeaderLineColorProperty = DependencyProperty.Register(nameof(HeaderLineColor), typeof(Brush), typeof(RemoteDevicePicker), new PropertyMetadata(Application.Current.Resources["SystemControlBackgroundAccentBrush"]));
+        /// <summary>
+        /// Gets the dependency property for <see cref="HeaderLineColor"/>.
+        /// </summary>
+        public static readonly DependencyProperty HeaderLineColorProperty = DependencyProperty.Register(
+            nameof(HeaderLineColor), 
+            typeof(Brush), 
+            typeof(RemoteDevicePicker), 
+            new PropertyMetadata(Application.Current.Resources["SystemControlBackgroundAccentBrush"]));
 
+        /// <summary>
+        /// Device List Selection Mode
+        /// </summary>
         public ListViewSelectionMode DeviceListSelectionMode
         {
             get { return (ListViewSelectionMode)GetValue(DeviceListSelectionModeProperty); }
             set { SetValue(DeviceListSelectionModeProperty, value); }
         }
 
-        public static readonly DependencyProperty DeviceListSelectionModeProperty = DependencyProperty.Register(nameof(DeviceListSelectionMode), typeof(ListViewSelectionMode), typeof(RemoteDevicePicker), new PropertyMetadata(ListViewSelectionMode.Single));
+        /// <summary>
+        /// Gets the dependency property for <see cref="DeviceListSelectionMode"/>.
+        /// </summary>
+        public static readonly DependencyProperty DeviceListSelectionModeProperty = DependencyProperty.Register(
+            nameof(DeviceListSelectionMode), 
+            typeof(ListViewSelectionMode), 
+            typeof(RemoteDevicePicker), 
+            new PropertyMetadata(ListViewSelectionMode.Single));
 
+        /// <summary>
+        /// Event to fire when Picker is Closed.
+        /// </summary>
         public event EventHandler<RemoteDevicePickerEventArgs> RemoteDevicePickerClosed;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RemoteDevicePicker"/> class.
+        /// </summary>
         public RemoteDevicePicker()
         {
             DefaultStyleKey = typeof(RemoteDevicePicker);
@@ -58,7 +90,7 @@ namespace UWP.UnwantedToolkit.Controls
             RemoteDevicePickerClosed?.Invoke(this, eventArgs);
             Hide();
         }
-
+        /// <inheritdoc/>
         protected override void OnApplyTemplate()
         {
             _listDevices = GetTemplateChild("PART_LISTDEVICES") as ListView;

@@ -4,8 +4,19 @@ using Windows.UI.Xaml.Data;
 
 namespace UWP.UnwantedToolkit.Converters
 {
+    /// <summary>
+    /// Converts an Device Type to Proper Segoe MDL2 Asset Font Icon
+    /// </summary>
     public sealed class KindToImageConverter : IValueConverter
     {
+        /// <summary>
+        /// Convert from DeviceType to Segoe Icon
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="language"></param>
+        /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             string finalvalue = string.Empty;
@@ -34,6 +45,14 @@ namespace UWP.UnwantedToolkit.Converters
             return finalvalue;
         }
 
+        /// <summary>
+        /// Convert from Icon to DeviceType
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="language"></param>
+        /// <returns></returns>
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();

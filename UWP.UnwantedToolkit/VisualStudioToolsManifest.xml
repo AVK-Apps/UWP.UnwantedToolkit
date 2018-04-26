@@ -1,0 +1,7 @@
+<FileList>
+  <File Reference="UWP.UnwantedToolkit.dll">
+    <ToolboxItems VSCategory="UWP Unwanted Controls" BlendCategory="UWP Unwanted Controls">
+		<Item Type="UWP.UnwantedToolkit.Controls.HashHandleTextBlock" />
+    </ToolboxItems>
+  </File>
+</FileList>
