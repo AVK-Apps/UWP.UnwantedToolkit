@@ -1,7 +1,7 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:UWP.UnwantedToolkit.Converters"
+    xmlns:converters="using:UWP.UnwantedToolkit.Extensions.Converters"
     xmlns:controls="using:UWP.UnwantedToolkit.Controls">
 
     <converters:KindToImageConverter x:Key="KindToImageConverter" />

@@ -2,6 +2,10 @@
     x:Class="UWP.UnwantedToolkit.SampleApp.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UWP.UnwantedToolkit.SampleApp">
+    xmlns:converters="using:UWP.UnwantedToolkit.Extensions.Converters">
 
+    <Application.Resources>
+        <converters:NumeriKConverter x:Name="NumeriKConverter"/>
+        <converters:DateTimeToRelativeDateConverter x:Name="DateTimeToRelativeDateConverter"/>
+    </Application.Resources>
 </Application>

@@ -95,11 +95,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ControlPages\ConvertersPage.xaml.cs">
+      <DependentUpon>ConvertersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ControlPages\HashHandleTextBlock.xaml.cs">
       <DependentUpon>HashHandleTextBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ControlPages\RmoteDevicesPicker.xaml.cs">
-      <DependentUpon>RmoteDevicesPicker.xaml</DependentUpon>
+    <Compile Include="ControlPages\RemoteDevicesPicker.xaml.cs">
+      <DependentUpon>RemoteDevicesPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -127,11 +130,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ControlPages\ConvertersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ControlPages\HashHandleTextBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ControlPages\RmoteDevicesPicker.xaml">
+    <Page Include="ControlPages\RemoteDevicesPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +153,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UWP.UnwantedToolkit.Extensions\UWP.UnwantedToolkit.Extensions.csproj">
+      <Project>{7369dc2b-5933-4367-8988-7a02d754fc4e}</Project>
+      <Name>UWP.UnwantedToolkit.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UWP.UnwantedToolkit\UWP.UnwantedToolkit.csproj">
       <Project>{7ab983fb-04ae-4b47-91c8-6eca4083991e}</Project>
       <Name>UWP.UnwantedToolkit</Name>

@@ -6,9 +6,9 @@ using Windows.UI.Xaml.Input;
 
 namespace UWP.UnwantedToolkit.SampleApp.ControlPages
 {
-    public sealed partial class RmoteDevicesPicker : Page
+    public sealed partial class RemoteDevicesPicker : Page
     {
-        public RmoteDevicesPicker()
+        public RemoteDevicesPicker()
         {
             this.InitializeComponent();
         }

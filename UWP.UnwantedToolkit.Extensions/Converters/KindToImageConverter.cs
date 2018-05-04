@@ -1,8 +1,8 @@
 ﻿using System;
-using UWP.UnwantedToolkit.Enums;
+using UWP.UnwantedToolkit.Extensions.Enums;
 using Windows.UI.Xaml.Data;
 
-namespace UWP.UnwantedToolkit.Converters
+namespace UWP.UnwantedToolkit.Extensions.Converters
 {
     /// <summary>
     /// Converts an Device Type to Proper Segoe MDL2 Asset Font Icon

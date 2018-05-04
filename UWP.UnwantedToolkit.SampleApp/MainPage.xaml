@@ -10,8 +10,9 @@
     <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
         <controls:NavigationView x:Name="nvSample" IsTabStop="False" Header="UWP Unwanted Toolkit." IsSettingsVisible="False" ItemInvoked="nvSample_ItemInvoked">
             <controls:NavigationView.MenuItems>
-                <controls:NavigationViewItem Icon="Play" Content="RemoteDevicePicker" Tag="RmoteDevicesPicker" />
+                <controls:NavigationViewItem Icon="Play" Content="RemoteDevicePicker" Tag="RemoteDevicesPicker" />
                 <controls:NavigationViewItem Icon="Play" Content="HashHandleTextBlock" Tag="HashHandleTextBlock" />
+                <controls:NavigationViewItem Icon="Play" Content="Converter" Tag="ConvertersPage" />
             </controls:NavigationView.MenuItems>
             <Frame x:Name="contentFrame" />
         </controls:NavigationView>

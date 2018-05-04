@@ -1,4 +1,4 @@
-﻿namespace UWP.UnwantedToolkit.Enums
+﻿namespace UWP.UnwantedToolkit.Extensions.Enums
 {
     /// <summary>
     /// List of Device Types

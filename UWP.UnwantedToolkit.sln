@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWP.UnwantedToolkit", "UWP.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWP.UnwantedToolkit.SampleApp", "UWP.UnwantedToolkit.SampleApp\UWP.UnwantedToolkit.SampleApp.csproj", "{A69ADFCC-4606-49A5-81AA-3BA9D3D047E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWP.UnwantedToolkit.Extensions", "UWP.UnwantedToolkit.Extensions\UWP.UnwantedToolkit.Extensions.csproj", "{7369DC2B-5933-4367-8988-7A02D754FC4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,22 @@ Global
 		{A69ADFCC-4606-49A5-81AA-3BA9D3D047E5}.Release|x86.ActiveCfg = Release|x86
 		{A69ADFCC-4606-49A5-81AA-3BA9D3D047E5}.Release|x86.Build.0 = Release|x86
 		{A69ADFCC-4606-49A5-81AA-3BA9D3D047E5}.Release|x86.Deploy.0 = Release|x86
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Debug|x64.Build.0 = Debug|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Debug|x86.Build.0 = Debug|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Release|ARM.Build.0 = Release|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Release|x64.ActiveCfg = Release|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Release|x64.Build.0 = Release|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Release|x86.ActiveCfg = Release|Any CPU
+		{7369DC2B-5933-4367-8988-7A02D754FC4E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

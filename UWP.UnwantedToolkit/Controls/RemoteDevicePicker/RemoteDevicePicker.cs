@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using UWP.UnwantedToolkit.Enums;
+using UWP.UnwantedToolkit.Extensions.Enums;
 using Windows.System.RemoteSystems;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
