@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <id>UWP.UnwantedToolkit</id>
+    <version>1.0.8</version>
+    <title>UWP.UnwantedToolkit</title>
+    <authors>avkapps</authors>
+    <owners>avkapps</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>Unwanted Controls for UWP Apps</description>
     <copyright>Copyright ©  2018</copyright>
   </metadata>
   <files>
@@ -16,7 +16,7 @@
 	<file src="..\UWP.UnwantedToolkit\bin\Release\UWP.UnwantedToolkit.dll" target="lib\uap10.0"/>
 	<file src="..\UWP.UnwantedToolkit\bin\Release\UWP.UnwantedToolkit\UWP.UnwantedToolkit.xr.xml" target="lib\uap10.0\UWP.UnwantedToolkit"/>
 	<!-- XAML controls -->
-	<file src="..\UWP.UnwantedToolkit\bin\Release\UWP.UnwantedToolkit\Themes\Generic.xaml" target="lib\uap10.0\Themes"/>
+	<file src="..\UWP.UnwantedToolkit\bin\Release\UWP.UnwantedToolkit\Themes\Generic.xaml" target="lib\uap10.0\UWP.UnwantedToolkit\Themes"/>
 	<!-- Toolbox -->
 	<file src="..\UWP.UnwantedToolkit\VisualStudioToolsManifest.xml" target="tools\"/>
   </files>

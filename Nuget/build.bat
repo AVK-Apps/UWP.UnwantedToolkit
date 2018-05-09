@@ -1,1 +1,1 @@
-nuget pack ..\UWP.UnwantedToolkit\UWP.UnwantedToolkit.csproj -Build -Symbols -OutputDirectory ..\NugetPackages
+nuget pack ..\UWP.UnwantedToolkit\UWP.UnwantedToolkit.nuspec -Build -Symbols -OutputDirectory ..\NugetPackages
