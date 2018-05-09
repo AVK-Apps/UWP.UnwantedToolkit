@@ -7,11 +7,7 @@ namespace UWP.UnwantedToolkit.Extensions.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (double.TryParse(value.ToString(), out double result))
-            {
-                return Common.NumeriK(result);
-            }
-            return value.ToString();
+            return value.ToString().AsNumeriK();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

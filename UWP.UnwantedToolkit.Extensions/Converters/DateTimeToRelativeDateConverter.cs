@@ -7,7 +7,7 @@ namespace UWP.UnwantedToolkit.Extensions.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            return Common.GetRelativeDate(DateTime.Parse(value.ToString()));
+            return DateTime.Parse(value.ToString()).AsRelativeDate();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

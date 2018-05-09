@@ -12,7 +12,7 @@
             <controls:NavigationView.MenuItems>
                 <controls:NavigationViewItem Icon="Play" Content="RemoteDevicePicker" Tag="RemoteDevicesPicker" />
                 <controls:NavigationViewItem Icon="Play" Content="HashHandleTextBlock" Tag="HashHandleTextBlock" />
-                <controls:NavigationViewItem Icon="Play" Content="Converter" Tag="ConvertersPage" />
+                <controls:NavigationViewItem Icon="Play" Content="Converter &amp; Extensions" Tag="ConvertersPage" />
             </controls:NavigationView.MenuItems>
             <Frame x:Name="contentFrame" />
         </controls:NavigationView>
