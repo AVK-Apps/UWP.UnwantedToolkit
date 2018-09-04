@@ -101,6 +101,9 @@
     <Compile Include="ControlPages\HashHandleTextBlock.xaml.cs">
       <DependentUpon>HashHandleTextBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ControlPages\MinMaxTextBox.xaml.cs">
+      <DependentUpon>MinMaxTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ControlPages\RemoteDevicesPicker.xaml.cs">
       <DependentUpon>RemoteDevicesPicker.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ControlPages\MinMaxTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ControlPages\RemoteDevicesPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,10 +156,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.0.8</Version>
+      <Version>6.1.7</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>2.2.0</Version>
+      <Version>4.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

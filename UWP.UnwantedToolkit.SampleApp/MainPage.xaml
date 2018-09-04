@@ -7,11 +7,12 @@
     xmlns:controls="using:Windows.UI.Xaml.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <controls:NavigationView x:Name="nvSample" IsTabStop="False" Header="UWP Unwanted Toolkit." IsSettingsVisible="False" ItemInvoked="nvSample_ItemInvoked">
             <controls:NavigationView.MenuItems>
                 <controls:NavigationViewItem Icon="Play" Content="RemoteDevicePicker" Tag="RemoteDevicesPicker" />
                 <controls:NavigationViewItem Icon="Play" Content="HashHandleTextBlock" Tag="HashHandleTextBlock" />
+                <controls:NavigationViewItem Icon="Play" Content="MinMaxTextBox" Tag="MinMaxTextBox" />
                 <controls:NavigationViewItem Icon="Play" Content="Converter &amp; Extensions" Tag="ConvertersPage" />
             </controls:NavigationView.MenuItems>
             <Frame x:Name="contentFrame" />

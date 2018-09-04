@@ -7,12 +7,12 @@
     xmlns:hashhandletextblock="using:UWP.UnwantedToolkit.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="InputText" AcceptsReturn="True"/>
+        <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="InputText" AcceptsReturn="True" />
         <hashhandletextblock:HashHandleTextBlock Text="{Binding ElementName=InputText, Path=Text}" Grid.Row="1" LinkForeground="DarkGray"
                                                  Margin="20" HashPrefix="https://twitter.com/hashtag/" HandlePrefix="https://twitter.com/" />
     </Grid>

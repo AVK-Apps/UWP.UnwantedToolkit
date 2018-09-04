@@ -7,42 +7,41 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+    <Grid>
         <StackPanel Orientation="Vertical">
-            <controls:HeaderedContentControl HorizontalContentAlignment="Stretch" >
+            <controls:HeaderedContentControl HorizontalContentAlignment="Stretch">
                 <controls:HeaderedContentControl.HeaderTemplate>
                     <DataTemplate>
-                        <TextBlock Text="NumeriK" Margin="10,0" Foreground="{StaticResource SystemControlHighlightAccentBrush}" FontSize="{StaticResource TextStyleExtraLargeFontSize}"/>
+                        <TextBlock Text="NumeriK" Margin="10,0" FontSize="{StaticResource TextStyleExtraLargeFontSize}" />
                     </DataTemplate>
                 </controls:HeaderedContentControl.HeaderTemplate>
                 <Grid Padding="10">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock Text="NumeriKConverter" VerticalAlignment="Center"/>
-                    <TextBox Grid.Column="1" x:Name="txtNumeriK" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
-                    <TextBlock Grid.Column="2" Text="{Binding ElementName=txtNumeriK, Path=Text, Converter={StaticResource NumeriKConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <controls:MarkdownTextBlock Grid.Row="1" Text="Using Converter `Text={Binding ElementName=txtNumeriK, Path=Text, Converter={StaticResource NumeriKConverter}}`" Padding="5"/>
-                    <controls:MarkdownTextBlock Grid.Row="2" Text="Using Extension `string numericString = txtNumeriK.Text.AsNumeriK();` " Padding="5"/>
-                    
+                    <TextBlock Text="NumeriKConverter" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" x:Name="txtNumeriK" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                    <TextBlock Grid.Column="2" Text="{Binding ElementName=txtNumeriK, Path=Text, Converter={StaticResource NumeriKConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <controls:MarkdownTextBlock Grid.Row="1" Text="Using Converter `Text={Binding ElementName=txtNumeriK, Path=Text, Converter={StaticResource NumeriKConverter}}`" Padding="5" />
+                    <controls:MarkdownTextBlock Grid.Row="2" Text="Using Extension `string numericString = txtNumeriK.Text.AsNumeriK();` " Padding="5" />
                 </Grid>
             </controls:HeaderedContentControl>
             <Grid Padding="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="DateTimeToRelativeDateConverter" VerticalAlignment="Center"/>
-                <DatePicker Grid.Column="1" x:Name="txtDateTime" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
-                <TextBlock Grid.Column="2" Text="{Binding ElementName=txtDateTime, Path=Date, Converter={StaticResource DateTimeToRelativeDateConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Text="DateTimeToRelativeDateConverter" VerticalAlignment="Center" />
+                <DatePicker Grid.Column="1" x:Name="txtDateTime" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                <TextBlock Grid.Column="2" Text="{Binding ElementName=txtDateTime, Path=Date, Converter={StaticResource DateTimeToRelativeDateConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Grid>
         </StackPanel>
     </Grid>

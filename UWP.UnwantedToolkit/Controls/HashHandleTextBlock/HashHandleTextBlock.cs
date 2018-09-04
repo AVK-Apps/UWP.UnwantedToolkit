@@ -146,6 +146,7 @@ namespace UWP.UnwantedToolkit.Controls
                     string handle = Text.Substring(handlestart, handleEnd - handlestart);
                     pos = handleEnd;
                     RenderHandle(handle, true);
+                    RenderText(" ");
                 }
                 else if (Text[pos] == '#')
                 {
@@ -153,8 +154,9 @@ namespace UWP.UnwantedToolkit.Controls
                     hashEnd = Text.IndexOf(" ", hashstart);
                     if (hashEnd == -1) hashEnd = end;
                     string hashText = Text.Substring(hashstart, hashEnd - hashstart);
-                    RenderHandle(hashText, false);
                     pos = hashEnd;
+                    RenderHandle(hashText, false);
+                    RenderText(" ");
                 }
                 else
                 {
@@ -172,19 +174,26 @@ namespace UWP.UnwantedToolkit.Controls
 
         internal void RenderHandle(string Handle, bool isHandle)
         {
+            char[] list = new char[] { '/', '!', '|', '.' };
+            int index = Handle.IndexOfAny(list);
+            string addl = index <= 0 ? " " : Handle.Substring(index, Handle.Length - index);
+            //Handle = Handle.Substring(0, index);
+
+            index = index == -1 ? Handle.Length : index;
+
             string returnString = string.Format(
                 "{0}{1}",  
                 isHandle ? HandlePrefix : HashPrefix,
-                Handle.Substring(1, Handle.Length - 1));
+                Handle.Substring(1, index - 1));
 
             Hyperlink hyperlink = new Hyperlink() { Foreground = LinkForeground };
             hyperlink.NavigateUri = new Uri(returnString);
-            Run run = new Run() { Text = Handle };
+            Run run = new Run() { Text = Handle.Substring(0, index) };
             hyperlink.Inlines.Add(run);
 
             Paragraph.Inlines.Add(hyperlink);
 
-            run = new Run() { Text = " " };
+            run = new Run() { Text = addl };
             Paragraph.Inlines.Add(run);
         }
     }
