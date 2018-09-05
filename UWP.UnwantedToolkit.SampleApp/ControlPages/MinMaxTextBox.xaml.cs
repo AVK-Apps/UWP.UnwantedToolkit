@@ -14,7 +14,22 @@ namespace UWP.UnwantedToolkit.SampleApp.ControlPages
 
         private async void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            await new MessageDialog(minMaxTextBox.Text).ShowAsync();
+            if (!string.IsNullOrEmpty(minMaxTextBox.SelectedText))
+            {
+                await new MessageDialog(minMaxTextBox.SelectedText).ShowAsync();
+            }
+            else
+            {
+                await new MessageDialog(minMaxTextBox.Text).ShowAsync();
+            }
+        }
+
+        private void Button2_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(minMaxTextBox.SelectedText))
+            {
+                minMaxTextBox.SelectedText = "**" + minMaxTextBox.SelectedText + "**";
+            }
         }
     }
 }

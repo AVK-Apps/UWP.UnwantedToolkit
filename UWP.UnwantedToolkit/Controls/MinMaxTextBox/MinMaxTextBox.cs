@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using Windows.UI.Text;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 // The Templated Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234235
@@ -65,6 +67,32 @@ namespace UWP.UnwantedToolkit.Controls
             new PropertyMetadata(600));
 
         /// <summary>
+        /// Text of TextBox
+        /// </summary>
+        public string SelectedText
+        {
+            get { return (string)GetValue(SelectedTextProperty); }
+            set { SetValue(SelectedTextProperty, value); }
+        }
+
+        /// <summary>
+        /// Gets the dependency property for <see cref="Text"/>.
+        /// </summary>
+        public static readonly DependencyProperty SelectedTextProperty = DependencyProperty.Register(
+            nameof(SelectedText),
+            typeof(string),
+            typeof(MinMaxTextBox),
+            new PropertyMetadata(string.Empty, OnSelectedTextChanged));
+
+        private static void OnSelectedTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var instance = d as MinMaxTextBox;
+            RichEditBox TextBox = instance.GetTemplateChild("TextData") as RichEditBox;
+            TextBox.Document.Selection.Text = e.NewValue.ToString();
+            TextBox.Focus(FocusState.Programmatic);
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MinMaxTextBox"/> class.
         /// </summary>
         public MinMaxTextBox()
@@ -72,34 +100,43 @@ namespace UWP.UnwantedToolkit.Controls
             DefaultStyleKey = typeof(MinMaxTextBox);
         }
 
-        private TextBox TextData;
         private TextBlock TextInfo;
+        private RichEditBox TextBox;
 
         /// <inheritdoc />
         protected override void OnApplyTemplate()
         {
-            TextData = GetTemplateChild("TextData") as TextBox;
+            TextBox = GetTemplateChild("TextData") as RichEditBox;
             TextInfo = GetTemplateChild("TextInfo") as TextBlock;
-            TextData.PlaceholderText = $"Minimum {MinLength} characters. Maximum {MaxLength}";
-            TextData.TextChanged += TextData_TextChanged;
-            Render();
+            TextBox.PlaceholderText = $"Minimum {MinLength} characters. Maximum {MaxLength}";
+            TextBox.TextChanged += TextBox_TextChanged;
+            TextBox.SelectionChanged += TextBox_SelectionChanged;
+            Render(string.Empty);
         }
 
-        private void TextData_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox_TextChanged(object sender, RoutedEventArgs e)
         {
-            Text = TextData.Text;
-            Render();
+            TextBox.Document.GetText(TextGetOptions.None, out string changedText);
+            Text = changedText;
+            Render(changedText);
+            TextBox.Focus(FocusState.Programmatic);
         }
 
-        private void Render()
+        private void TextBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            if (TextData.Text.Length < MinLength)
+            SelectedText = TextBox.Document.Selection.Text;
+        }
+
+        private void Render(string ChangedText)
+        {
+            TextBox.Document.GetText(TextGetOptions.None, out string changedText);
+            if (ChangedText.Length < MinLength)
             {
-                TextInfo.Text = $"{MinLength - TextData.Text.Length}  more required....";
+                TextInfo.Text = $"{MinLength - ChangedText.Length}  more required....";
             }
-            else if (TextData.Text.Length >= MinLength)
+            else if (ChangedText.Length >= MinLength)
             {
-                TextInfo.Text = $"{TextData.MaxLength - TextData.Text.Length} characters remaining";
+                TextInfo.Text = $"{TextBox.MaxLength - ChangedText.Length} characters remaining";
             }
         }
     }

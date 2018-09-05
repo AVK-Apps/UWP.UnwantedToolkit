@@ -12,9 +12,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <controls:MinMaxTextBox MinLength="6" MaxLength="500" MinWidth="500" x:Name="minMaxTextBox" />
             <Button Content="Text Find" Tapped="Button_Tapped" Grid.Row="1" />
+            <Button Content="Replace" Tapped="Button2_Tapped" Grid.Row="2" />
         </Grid>
     </Grid>
 </Page>

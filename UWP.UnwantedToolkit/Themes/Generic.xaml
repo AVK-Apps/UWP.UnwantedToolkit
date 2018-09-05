@@ -241,7 +241,7 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <TextBox x:Name="TextData" Text="{TemplateBinding Text}" Style="{TemplateBinding Style}" MaxLength="{TemplateBinding MaxLength}" TextWrapping="Wrap" />
+                            <RichEditBox x:Name="TextData" Style="{TemplateBinding Style}" MaxLength="{TemplateBinding MaxLength}" TextWrapping="Wrap" />
                             <TextBlock x:Name="TextInfo" Grid.Row="1" />
                         </Grid>
                     </Border>

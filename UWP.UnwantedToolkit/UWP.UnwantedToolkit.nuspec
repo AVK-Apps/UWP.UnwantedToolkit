@@ -9,6 +9,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Unwanted Controls for UWP Apps</description>
     <copyright>Copyright ©  2018</copyright>
+	<dependencies>
+		<dependency id="UWP.UnwantedToolkit.Extensions" version="1.1.0" />
+	</dependencies>
   </metadata>
   <files>
 	<file src="..\UWP.UnwantedToolkit\bin\Release\UWP.UnwantedToolkit.xml" target="lib\uap10.0"/>
