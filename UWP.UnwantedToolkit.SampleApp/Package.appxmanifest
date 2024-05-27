@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap mp uap3">
-  <Identity Name="a98c8463-9658-4b91-9fcf-869b2f06c906" Publisher="CN=vamsi" Version="1.0.0.0" />
+  <Identity Name="a98c8463-9658-4b91-9fcf-869b2f06c906" Publisher="CN=4D46A311-D1FD-47AA-8C1B-712220118D6A" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="a98c8463-9658-4b91-9fcf-869b2f06c906" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>UWP.UnwantedToolkit.SampleApp</DisplayName>

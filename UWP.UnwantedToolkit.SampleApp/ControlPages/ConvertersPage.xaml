@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:markdown="using:Microsoft.Toolkit.Uwp.UI.Controls.Markdown.Render"
     mc:Ignorable="d">
 
     <Grid>
@@ -29,8 +30,8 @@
                     <TextBlock Text="NumeriKConverter" VerticalAlignment="Center" />
                     <TextBox Grid.Column="1" x:Name="txtNumeriK" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
                     <TextBlock Grid.Column="2" Text="{Binding ElementName=txtNumeriK, Path=Text, Converter={StaticResource NumeriKConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    <controls:MarkdownTextBlock Grid.Row="1" Text="Using Converter `Text={Binding ElementName=txtNumeriK, Path=Text, Converter={StaticResource NumeriKConverter}}`" Padding="5" />
-                    <controls:MarkdownTextBlock Grid.Row="2" Text="Using Extension `string numericString = txtNumeriK.Text.AsNumeriK();` " Padding="5" />
+                    <!--<markdown:MarkdownTextBlock Grid.Row="1" Text="Using Converter `Text={Binding ElementName=txtNumeriK, Path=Text, Converter={StaticResource NumeriKConverter}}`" Padding="5" />
+                    <markdown:MarkdownTextBlock Grid.Row="2" Text="Using Extension `string numericString = txtNumeriK.Text.AsNumeriK();` " Padding="5" />-->
                 </Grid>
             </controls:HeaderedContentControl>
             <Grid Padding="10">
